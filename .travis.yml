@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jayat19/frontend -f Dockerfile.dev .
+
+script:
+  - docker run jayat19/frontend npm run test -- --coverage
